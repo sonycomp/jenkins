@@ -16,8 +16,17 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Testing..'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Testing..'
+          }
+        }
+        stage('p2') {
+          steps {
+            sh 'ls'
+          }
+        }
       }
     }
     stage('Deploy') {
