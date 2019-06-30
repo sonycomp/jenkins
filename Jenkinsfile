@@ -8,39 +8,21 @@ pipeline {
             echo 'Building..'
           }
         }
-        stage('') {
+        stage('p1') {
           steps {
-            echo 'Hello'
+            echo 'Hi Dhamu'
           }
         }
       }
     }
     stage('Test') {
-      parallel {
-        stage('Test') {
-          steps {
-            echo 'Testing..'
-          }
-        }
-        stage('') {
-          steps {
-            echo 'Hello Test'
-          }
-        }
+      steps {
+        echo 'Testing..'
       }
     }
     stage('Deploy') {
-      parallel {
-        stage('Deploy') {
-          steps {
-            echo 'Deploying....'
-          }
-        }
-        stage('') {
-          steps {
-            echo 'Hi Deploy'
-          }
-        }
+      steps {
+        echo 'Deploying....'
       }
     }
   }
